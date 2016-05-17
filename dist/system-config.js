@@ -23,6 +23,7 @@ var barrels = [
     // App specific barrels.
     'app',
     'app/shared',
+    'app/fighter-search',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {

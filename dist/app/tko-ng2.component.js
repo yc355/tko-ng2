@@ -9,16 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var fighter_search_component_1 = require('./fighter-search/fighter-search.component');
 var TkoNg2AppComponent = (function () {
     function TkoNg2AppComponent() {
-        this.title = 'tko-ng2 works!';
     }
     TkoNg2AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'tko-ng2-app',
             templateUrl: 'tko-ng2.component.html',
-            styleUrls: ['tko-ng2.component.css']
+            styleUrls: ['tko-ng2.component.css'],
+            directives: [fighter_search_component_1.FighterSearchComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], TkoNg2AppComponent);
