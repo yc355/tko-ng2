@@ -7,7 +7,7 @@ import { Observable }       from 'rxjs/Rx';
 export class FighterSearchService {
   constructor (private http: Http) {}
 
-  private tkoApiUrl = 'http://www.tko-api.yifanchen.io/fighter_search/';
+  private tkoApiUrl = 'http://tko-api.yifanchen.io/fighter_search/';
 
   getFighter(query: string): Observable<string> {
     return this.http.get(this.tkoApiUrl + query)
@@ -20,7 +20,7 @@ export class FighterSearchService {
       throw new Error('Response status: ' + res.status);
     }
     let body = res.json();
-    return body.data || { };
+    return body || { };
   }
 
   private handleError (error: any) {

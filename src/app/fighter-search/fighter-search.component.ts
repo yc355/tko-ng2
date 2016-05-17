@@ -20,7 +20,7 @@ export class FighterSearchComponent implements OnInit {
   ngOnInit() {
     this.fighterSearchService.getFighter('ronda')
                  .subscribe(
-                   result => this.result = result,
+                   result => {this.result = result},
                    error =>  null);
   }
 }

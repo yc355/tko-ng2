@@ -14,7 +14,7 @@ var Rx_1 = require('rxjs/Rx');
 var FighterSearchService = (function () {
     function FighterSearchService(http) {
         this.http = http;
-        this.tkoApiUrl = 'http://www.tko-api.yifanchen.io/fighter_search/';
+        this.tkoApiUrl = 'http://tko-api.yifanchen.io/fighter_search/';
     }
     FighterSearchService.prototype.getFighter = function (query) {
         return this.http.get(this.tkoApiUrl + query)
@@ -26,7 +26,7 @@ var FighterSearchService = (function () {
             throw new Error('Response status: ' + res.status);
         }
         var body = res.json();
-        return body.data || {};
+        return body || {};
     };
     FighterSearchService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure

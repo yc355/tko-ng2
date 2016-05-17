@@ -17,7 +17,7 @@ var FighterSearchComponent = (function () {
     FighterSearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.fighterSearchService.getFighter('ronda')
-            .subscribe(function (result) { return _this.result = result; }, function (error) { return null; });
+            .subscribe(function (result) { _this.result = result; }, function (error) { return null; });
     };
     FighterSearchComponent = __decorate([
         core_1.Component({
