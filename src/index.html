@@ -2,17 +2,51 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>TkoNg2</title>
+  <title>TKO-alpha</title>
   <base href="/">
   {{content-for 'head'}}
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <tko-ng2-app>Loading...</tko-ng2-app>
+  <tko-ng2-app></tko-ng2-app>
+
+  <div class="loading">
+    <h1>Loading...</h1>
+  </div>
+
+  <style>
+    .loading {
+      opacity: 0;
+      transition: opacity .2s ease-in-out;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: #000;
+      z-index: -1;
+    }
+
+    .loading > h1 {
+      color: white;
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      top: 50%;
+      left: 50%;
+      margin-left: -50px;
+      margin-top: -25px;
+    }
+
+    tko-ng2-app:empty + .loading {
+      opacity: 1;
+      z-index: 100;
+    }
+  </style>
 
   <script src="vendor/es6-shim/es6-shim.js"></script>
   <script src="vendor/reflect-metadata/Reflect.js"></script>
