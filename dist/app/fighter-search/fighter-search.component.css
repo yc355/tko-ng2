@@ -1,0 +1,86 @@
+strong {
+  font-style: italic;
+  color: #9c9c9c;
+}
+
+input {
+  min-width: 300px;
+}
+
+td {
+  vertical-align: top;
+}
+
+a {
+  cursor: pointer;
+}
+
+#fighter-img-column {
+  text-align: center;
+}
+
+#fighter-img {
+  border-radius: 5%;
+}
+
+#fighter-details-column {
+  padding-left: 20px;
+}
+
+#name {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+#nickname {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  color: #5b5b5b;
+}
+
+#fight-section {
+  height: 80vh;
+  overflow: auto;
+}
+
+.stat-column {
+  padding-right: 40px;
+}
+
+.large-stat {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.small-stat {
+  font-size: 12px;
+}
+
+.wins-number {
+  color: #00b200;
+  font-weight: bold;
+}
+
+.wins-text {
+  color: #004c00;
+}
+
+.losses-number {
+  color: #b20000;
+  font-weight: bold;
+}
+
+.losses-text {
+  color: #4c0000;
+}
+
+.other-column {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#fights-table {
+  font-size: 12px;
+}

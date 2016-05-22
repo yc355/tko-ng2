@@ -29,9 +29,7 @@ var FighterSearchService = (function () {
         return body || {};
     };
     FighterSearchService.prototype.handleError = function (error) {
-        // In a real world app, we might use a remote logging infrastructure
         var errMsg = error.message || 'Server error';
-        console.error(errMsg); // log to console instead
         return Rx_1.Observable.throw(errMsg);
     };
     FighterSearchService = __decorate([
