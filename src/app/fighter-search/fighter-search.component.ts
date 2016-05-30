@@ -28,7 +28,12 @@ export class FighterSearchComponent implements OnInit {
       this.notFoundMessage = null;
       this.result = null;
       this.fighterSearchService.getFighter(query)
-        .subscribe(response => {this.result = response},
+        .subscribe(response => {if(Object.keys(response).length != 0) {
+                                  this.result = response;
+                                } else {
+                                  this.searching = false;
+                                  this.notFoundMessage = 'Fighter not found.'
+                                }},
                    error => {this.searching = false;
                              this.notFoundMessage = 'Fighter not found.'},
                    () => {this.searching = false});

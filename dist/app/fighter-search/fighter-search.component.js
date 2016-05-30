@@ -24,7 +24,15 @@ var FighterSearchComponent = (function () {
             this.notFoundMessage = null;
             this.result = null;
             this.fighterSearchService.getFighter(query)
-                .subscribe(function (response) { _this.result = response; }, function (error) {
+                .subscribe(function (response) {
+                if (Object.keys(response).length != 0) {
+                    _this.result = response;
+                }
+                else {
+                    _this.searching = false;
+                    _this.notFoundMessage = 'Fighter not found.';
+                }
+            }, function (error) {
                 _this.searching = false;
                 _this.notFoundMessage = 'Fighter not found.';
             }, function () { _this.searching = false; });
