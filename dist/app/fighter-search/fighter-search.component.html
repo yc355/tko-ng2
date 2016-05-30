@@ -75,7 +75,7 @@
         <tr *ngFor="let fight of result.fights" [ngClass]="{success: fight.result == 'win', danger: fight.result == 'loss', info: fight.result == 'draw' || fight.result == 'NC'}">
           <td>{{fight.result | uppercase}}</td>
           <td><a (click)="onSearch(fight.opponent)">{{fight.opponent}}</a></td>
-          <td>{{fight.method}} {{fight.method == 'Draw' ? '' : '(' + fight.method_details + ')'}}</td>
+          <td>{{fight.method}} {{fight.method_details ? '(' + fight.method_details + ')' : ''}}</td>
           <td>{{fight.event}}</td>
           <td>{{fight.date}}</td>
           <td>{{fight.round}}</td>
