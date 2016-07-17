@@ -4,6 +4,6 @@ export class TkoNg2Page {
   }
 
   getParagraphText() {
-    return element(by.css('tko-ng2-app h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }
