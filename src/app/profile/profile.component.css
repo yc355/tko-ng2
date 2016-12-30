@@ -59,7 +59,7 @@ table {
   border-width: thin;
 }
 
-.fight-result, .fight-round, .fight-time {
+.fight-result-header, .fight-round-header, .fight-time-header, .fight-result, .fight-round, .fight-time {
   text-align: center;
 }
 
