@@ -1,0 +1,121 @@
+<div class="flex-container profile-container" fxLayout="row">
+  <div fxFlex="100%" fxLayoutAlign="center center" *ngIf="!queryService.result">
+    <h1 *ngIf="!queryService.loading">TKO</h1>
+    <md-progress-spinner mode="indeterminate" color="primary" *ngIf="queryService.loading"></md-progress-spinner>
+  </div>
+  <div fxFlex="100%" [class.loading]="queryService.loading && queryService.result" *ngIf="queryService.result">
+    <div class="flex-container" fxLayout="row" *ngIf="queryService.result">
+      <div fxFlex="23%">
+        <md-card>
+          <md-card-subtitle *ngIf="queryService.result.nickname">{{queryService.result.nickname}}</md-card-subtitle>
+          <md-card-title>{{queryService.result.name}}</md-card-title>
+          <md-card-content>
+            <div fxLayoutAlign="center center" fxLayout="row">
+              <img class="fighter-img" src="{{queryService.result.img_url}}">
+            </div>
+            <div fxLayoutAlign="center center" fxLayout="row">
+              <img class="flag-img" src="{{queryService.result.flag_url}}">
+            </div>
+            <div class="flex-container fighter-origin" fxLayout="row">
+              <span class="info-label">
+                Fighting out of<br>
+                <span class="info-content">{{queryService.result.locality}}</span><br>
+                <span class="info-content">{{queryService.result.nationality}}</span>
+              </span>
+            </div>
+            <div class="flex-container fighter-metrics" fxLayout="row">
+              <div fxFlex="33%">
+                <span class="info-label">
+                  Age<br>
+                  <span class="info-content">{{queryService.result.age}}</span>
+                </span>
+              </div>
+              <div fxFlex="33%">
+                <span class="info-label">
+                  Height<br>
+                  <span class="info-content">{{queryService.result.height}}</span>
+                </span>
+              </div>
+              <div fxFlex="33%">
+                <span class="info-label">
+                  Weight:<br>
+                  <span class="info-content">{{queryService.result.weight}}</span>
+                </span>
+              </div>
+            </div>
+            <div class="flex-container fighter-weightclass" fxLayout="row">
+              <span class="info-label">
+                Weight class<br>
+                <span class="info-content">{{queryService.result.weight_class}}</span>
+              </span>
+            </div>
+            <div class="flex-container fighter-association" fxLayout="row">
+              <span class="info-label">
+                Association<br>
+                <span class="info-content">{{queryService.result.association}}</span>
+              </span>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div fxFlex="2%">
+      </div>
+      <div fxFlex="75%">
+        <md-card>
+          <table class="stats-table">
+            <tr>
+              <td class="stat-column">
+                <div class="large-stat"><span class="wins-number">{{queryService.result.wins.total}}</span><span class="wins-text"> WIN{{queryService.result.wins.total != '1' ? 'S' : ''}}</span></div>
+                <div class="small-stat">
+                  <div *ngIf="queryService.result.wins.knockouts != '0'"><span class="wins-number">{{queryService.result.wins.knockouts}}</span><span class="wins-text"> by knockout</span></div>
+                  <div *ngIf="queryService.result.wins.submissions != '0'"><span class="wins-number">{{queryService.result.wins.submissions}}</span><span class="wins-text"> by submission</span></div>
+                  <div *ngIf="queryService.result.wins.decision != '0'"><span class="wins-number">{{queryService.result.wins.decisions}}</span><span class="wins-text"> by decision</span></div>
+                  <div *ngIf="queryService.result.wins.others != '0'"><span class="wins-number">{{queryService.result.wins.others}}</span><span class="wins-text"> by other</span></div>
+                </div>
+              </td>
+              <td class="stat-column">
+                <div class="large-stat"><span class="losses-number">{{queryService.result.losses.total}}</span><span class="losses-text"> LOSS{{queryService.result.losses.total != '1' ? 'ES' : ''}}</span></div>
+                <div class="small-stat">
+                  <div *ngIf="queryService.result.losses.knockouts != '0'"><span class="losses-number">{{queryService.result.losses.knockouts}}</span><span class="losses-text"> by knockout</span></div>
+                  <div *ngIf="queryService.result.losses.submissions != '0'"><span class="losses-number">{{queryService.result.losses.submissions}}</span><span class="losses-text"> by submission</span></div>
+                  <div *ngIf="queryService.result.losses.decision != '0'"><span class="losses-number">{{queryService.result.losses.decisions}}</span><span class="losses-text"> by decision</span></div>
+                  <div *ngIf="queryService.result.losses.others != '0'"><span class="losses-number">{{queryService.result.losses.others}}</span><span class="losses-text"> by other</span></div>
+                </div>
+              </td>
+              <td class="stat-column">
+                <div *ngIf="queryService.result.draws != 0">{{queryService.result.draws}} DRAW{{queryService.result.draws != '1' ? 'S' : ''}}</div>
+              </td>
+              <td class="stat-column">
+                <div *ngIf="queryService.result.no_contests != 0">{{queryService.result.no_contests}} NO CONTEST{{queryService.result.no_contests != '1' ? 'S' : ''}}</div>
+              </td>
+            </tr>
+          </table>
+          <table class="fights-table">
+            <thead>
+              <tr>
+                <th>Result</th>
+                <th>Opponent</th>
+                <th>Method</th>
+                <th>Time</th>
+                <th>Round</th>
+                <th>Event</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fight of queryService.result.fights" [ngClass]="{win: fight.result == 'win', loss: fight.result == 'loss', other: fight.result == 'draw' || fight.result == 'NC'}">
+                <td class="fight-result">{{fight.result | uppercase}}</td>
+                <td><a (click)="queryService.onFighterNameClick(fight.opponent)">{{fight.opponent}}</a></td>
+                <td>{{fight.method}} {{fight.method_details ? '(' + fight.method_details + ')' : ''}}</td>
+                <td class="fight-round">{{fight.round}}</td>
+                <td class="fight-time">{{fight.time}}</td>
+                <td>{{fight.event}}</td>
+                <td>{{fight.date}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </md-card>
+      </div>
+    </div>
+  </div>
+</div>

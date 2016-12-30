@@ -1,0 +1,16 @@
+<div class="flex-container query-container" fxLayout="row">
+  <div fxFlex="100%">
+    <form (ngSubmit)="onSubmit()">
+      <md-input-container class="query-input">
+        <input md-input placeholder="Fighter name" name="query" [(ngModel)]="queryService.query" autofocus>
+      </md-input-container>
+      <span class="query-error" *ngIf="queryError">Fighter not found</span>
+      <div class="query-submit" fxLayoutAlign="center center">
+        <button md-raised-button color="primary" type="submit">Submit</button>
+      </div>
+    </form>
+    <div class="query-credits" fxLayoutAlign="center center">
+      <a md-button href="http://yifanchen.io/" target="_blank">yifanchen.io</a>
+    </div>
+  </div>
+</div>

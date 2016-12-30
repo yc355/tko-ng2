@@ -2,58 +2,30 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>TkoNg2</title>
+  <title>TKO | Mixed martial arts search engine</title>
   <base href="/">
 
-  {{#unless environment.production}}
-  <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
-  {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
-  <tko-ng2-app></tko-ng2-app>
-  <div class="loading">
-    <h1>Loading...</h1>
-  </div>
-
-  <style>
-    .loading {
-      opacity: 0;
-      transition: opacity .2s ease-in-out;
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background: #000;
-      z-index: -1;
-    }
-    .loading > h1 {
-      color: white;
-      position: absolute;
-      width: 100px;
-      height: 50px;
-      top: 50%;
-      left: 50%;
-      margin-left: -50px;
-      margin-top: -25px;
-    }
-    tko-ng2-app:empty + .loading {
-      opacity: 1;
-      z-index: 100;
-    }
-  </style>
-
-    {{#each scripts.polyfills}}
-    <script src="{{.}}"></script>
-    {{/each}}
-    <script>
-      System.import('system-config.js').then(function () {
-        System.import('main');
-      }).catch(console.error.bind(console));
-    </script>
+  <app-root>
+    <div class="center">
+      TKO
+    </div>
+    <style>
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 72px;
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
+  </app-root>
 </body>
 </html>

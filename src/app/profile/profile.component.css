@@ -1,0 +1,130 @@
+.profile-container {
+  margin: 20px;
+}
+
+h1 {
+  font-size: 120px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: #d3d3d3;
+}
+
+.loading {
+  opacity: 0.5;
+}
+
+img {
+  max-width: 100%;
+}
+
+.flag-img, .fighter-origin, .fighter-metrics, .fighter-weightclass, .fighter-association {
+  margin-top: 10px;
+}
+
+.info-label {
+  color: #9c9c9c;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.info-content {
+  color: #000000;
+  font-weight: bold;
+  font-style: normal;;
+}
+
+/* Fights table */
+
+.fights-table {
+  width: 100%;
+  font-size: 12px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.fights-table thead {
+  font-size: 14px;
+  text-align: left;
+}
+
+.fights-table tr {
+  line-height: 20px;
+}
+
+.fights-table td {
+  border-color: #e1e1e1;
+  border-style: solid;
+  border-width: thin;
+}
+
+.fight-result, .fight-round, .fight-time {
+  text-align: center;
+}
+
+a {
+  color: #337ab7;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #1e496d;
+}
+
+.fights-table thead {
+  background-color: #e1e1e1;
+}
+
+.win {
+  background-color: #ccffcc;
+}
+
+.loss {
+  background-color: #ffcccc;
+}
+
+.other {
+  background-color: #ccccff;
+}
+
+/* Stats table */
+.stats-table {
+  margin-bottom: 10px;
+}
+
+.stats-table td {
+  vertical-align: text-top;
+}
+
+.stat-column {
+  padding-right: 40px;
+  font-size: 26px;
+}
+
+.large-stat {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.small-stat {
+  font-size: 12px;
+}
+
+.wins-number {
+  color: #00b200;
+  font-weight: bold;
+}
+
+.wins-text {
+  color: #004c00;
+}
+
+.losses-number {
+  color: #b20000;
+  font-weight: bold;
+}
+
+.losses-text {
+  color: #4c0000;
+}
